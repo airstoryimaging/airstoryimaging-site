@@ -176,3 +176,24 @@ footer a { color: var(--muted); }
   .creds { grid-template-columns: 1fr; }
   .hero { min-height: 80vh; }
 }
+
+/* ---------- Contact form ---------- */
+.contact-form { max-width: 640px; margin: 0 auto; text-align: left; display: grid; gap: 16px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.contact-form label { display: grid; gap: 6px; font-size: 14px; color: #D3D9E1; font-weight: 600; }
+.contact-form .opt { color: var(--muted); font-weight: 400; }
+.contact-form input, .contact-form select, .contact-form textarea {
+  font: inherit; font-size: 15px; font-weight: 400; color: var(--text);
+  background: var(--charcoal-2); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; width: 100%;
+}
+.contact-form textarea { resize: vertical; }
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: none; border-color: var(--sky); }
+.contact-form .btn { justify-self: start; }
+.contact-form .btn:disabled { opacity: .6; cursor: default; transform: none; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.form-status { margin: 0; font-size: 15px; min-height: 1.4em; }
+.form-status.ok { color: #8FE3A8; }
+.form-status.err { color: #F2A0A0; }
+.copy-email { font: inherit; color: var(--text); background: none; border: 0; padding: 0; cursor: pointer; border-bottom: 1px dashed rgba(242,244,247,.4); }
+.copy-email:hover { border-bottom-color: var(--sky); }
+@media (max-width: 520px) { .field-row { grid-template-columns: 1fr; } .contact-form .btn { justify-self: stretch; } }
