@@ -221,3 +221,10 @@ figure.ph { margin: 0; }
     url("../img/bg-rotor.jpg") center / cover no-repeat;
 }
 #process .step { background: rgba(27,30,36,.55); backdrop-filter: blur(2px); }
+
+/* ---------- Featured project (video) ---------- */
+.featured { display: grid; grid-template-columns: 1.6fr 1fr; gap: 28px; align-items: center; margin-bottom: 28px; }
+.featured-media { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius); background: var(--charcoal-3); display: block; }
+.featured-text h3 { font-size: 24px; line-height: 1.25; margin: 0 0 10px; }
+.featured-text p:not(.eyebrow) { color: #D3D9E1; margin: 0; }
+@media (max-width: 860px) { .featured { grid-template-columns: 1fr; gap: 18px; } }
