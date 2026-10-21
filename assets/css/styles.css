@@ -213,3 +213,11 @@ figure.ph { margin: 0; }
 .gallery .ph, .gallery .wide { aspect-ratio: auto; height: 100%; }
 @media (max-width: 860px) { .gallery { grid-auto-rows: 220px; } }
 @media (max-width: 520px) { .gallery { grid-auto-rows: 240px; } .gallery .wide { aspect-ratio: auto; } }
+
+/* ---------- Rotor texture behind "How it works" (placeholder image) ---------- */
+#process {
+  background:
+    linear-gradient(rgba(35,39,47,.68), rgba(35,39,47,.82)),
+    url("../img/bg-rotor.jpg") center / cover no-repeat;
+}
+#process .step { background: rgba(27,30,36,.55); backdrop-filter: blur(2px); }
