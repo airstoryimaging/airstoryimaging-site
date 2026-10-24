@@ -44,7 +44,7 @@
       <div class="wrap">
         <h2>360&deg; orbit video</h2>
         <p class="sub">Every side of the building in one smooth pass. Useful for progress updates, owner reports and marketing.</p>
-        <video class="media-full" src="assets/video/orbit-renovation.mp4" poster="assets/img/orbit-renovation-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Drone orbit around an apartment building under renovation"></video>
+        <video class="media-full" src="assets/video/orbit-renovation.mp4" poster="assets/img/orbit-renovation-poster.jpg" muted loop playsinline preload="auto" data-smooth aria-label="Drone orbit around an apartment building under renovation"></video>
       </div>
     </section>
 
@@ -131,6 +131,13 @@
       };
       box.addEventListener('pointermove', e => { if (e.pointerType === 'mouse') move(e); });
       box.addEventListener('pointerleave', () => { lens.style.opacity = 0; });
+    });
+    // Smooth start for looping videos: show the poster until enough is buffered, then play
+    document.querySelectorAll('video[data-smooth]').forEach(v => {
+      v.preload = 'auto';
+      const go = () => { v.play().catch(() => {}); };
+      if (v.readyState >= 4) go(); else v.addEventListener('canplaythrough', go, { once: true });
+      setTimeout(go, 6000); // fallback on very slow connections
     });
   </script>
 </body>
