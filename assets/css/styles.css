@@ -296,3 +296,6 @@ video.media-full { aspect-ratio: 16 / 9; object-fit: cover; }
 .m-ref text { font-size: 15px; }
 .m-ref > rect:first-child { fill: none; stroke: #FFD24A; stroke-width: 3; stroke-dasharray: 6 4; }
 .note { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+.m-area polygon { fill: rgba(255,210,74,.28); stroke: #FFD24A; stroke-width: 3; stroke-linejoin: round; filter: drop-shadow(0 0 3px rgba(0,0,0,.8)); }
+.m-area rect { fill: rgba(27,30,36,.88); stroke: #FFD24A; stroke-width: 2; }
+.m-area text { fill: #fff; font-family: "Sora", sans-serif; font-size: 18px; font-weight: 600; text-anchor: middle; }
