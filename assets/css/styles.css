@@ -275,3 +275,13 @@ video.media-full { aspect-ratio: 16 / 9; object-fit: cover; }
 .cta-band p { color: var(--muted); margin: 0 0 24px; }
 .nav-links a.active { color: var(--text); }
 @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+/* ---------- Magnifier lens on the orthomosaic ---------- */
+.magnify { cursor: zoom-in; overflow: hidden; border-radius: var(--radius); }
+.magnify .lens {
+  position: absolute; width: 220px; height: 220px; border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.9); box-shadow: 0 6px 24px rgba(0,0,0,.5);
+  background-color: var(--charcoal-3); background-repeat: no-repeat;
+  pointer-events: none; opacity: 0; transition: opacity .15s ease; z-index: 2;
+}
+@media (hover: none) { .magnify .lens { display: none; } }

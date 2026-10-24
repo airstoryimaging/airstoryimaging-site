@@ -51,10 +51,11 @@
     <section class="block">
       <div class="wrap">
         <h2>Orthomosaic map</h2>
-        <p class="sub">Hundreds of overhead photos stitched into one scaled, GPS-referenced map. Click it to open the full-resolution version and zoom in.</p>
-        <a class="ortho-link" href="assets/img/cre-ortho-full.jpg" target="_blank" rel="noopener">
+        <p class="sub">Hundreds of overhead photos stitched into one scaled, GPS-referenced map. Move your cursor over it to see the detail, or click to open the full-resolution version.</p>
+        <a class="ortho-link magnify" href="assets/img/cre-ortho-full.jpg" data-full="assets/img/cre-ortho-full.jpg" target="_blank" rel="noopener">
           <img class="media-full" src="assets/img/cre-ortho.jpg" alt="Top-down orthomosaic map of a building under renovation and surrounding block" loading="lazy">
-          <span class="zoom-hint">Open full resolution &#8599;</span>
+          <span class="lens" aria-hidden="true"></span>
+          <span class="zoom-hint">Hover to magnify &middot; click for full resolution &#8599;</span>
         </a>
       </div>
     </section>
@@ -112,6 +113,25 @@
       toggle.setAttribute('aria-expanded', open);
     });
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Magnifying lens over the orthomosaic (mouse/trackpad only; touch taps open the full image)
+    document.querySelectorAll('.magnify').forEach(box => {
+      const img = box.querySelector('img'), lens = box.querySelector('.lens'), ZOOM = 4;
+      let loaded = false;
+      const move = e => {
+        const r = img.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        if (x < 0 || y < 0 || x > r.width || y > r.height) { lens.style.opacity = 0; return; }
+        if (!loaded) { lens.style.backgroundImage = `url("${box.dataset.full}")`; loaded = true; }
+        const L = lens.offsetWidth / 2;
+        lens.style.left = (x - L) + 'px'; lens.style.top = (y - L) + 'px';
+        lens.style.backgroundSize = (r.width * ZOOM) + 'px ' + (r.height * ZOOM) + 'px';
+        lens.style.backgroundPosition = (-(x * ZOOM - L)) + 'px ' + (-(y * ZOOM - L)) + 'px';
+        lens.style.opacity = 1;
+      };
+      box.addEventListener('pointermove', e => { if (e.pointerType === 'mouse') move(e); });
+      box.addEventListener('pointerleave', () => { lens.style.opacity = 0; });
+    });
   </script>
 </body>
 </html>
