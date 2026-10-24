@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Events &amp; Activities | Airstory Imaging</title>
+  <meta name="description" content="Aerial video and photos for cycling, races, weddings and outdoor events in the San Francisco Bay Area.">
+  <link rel="icon" href="assets/img/airstory-badge.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html" aria-label="Airstory Imaging home">
+        <img src="assets/img/airstory-badge.svg" alt="">
+        <span>Airstory<small>IMAGING</small></span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="construction.html">Construction &amp; Real Estate</a></li>
+        <li><a href="events.html" class="active" aria-current="page">Events</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn-primary btn-small nav-cta" href="index.html#contact">Get a quote</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <p class="eyebrow">Events &amp; Activities</p>
+        <h1>Your day, from above.</h1>
+        <p class="lead">Aerial video and photos for rides, races, weddings and outdoor adventures. As a lifelong cyclist, I know how to follow the action and find the angle that tells the story.</p>
+      </div>
+    </section>
+
+    <section class="block alt">
+      <div class="wrap">
+        <h2>Cycling</h2>
+        <p class="sub">A descent on Hawk Hill in the Marin Headlands, followed from the air.</p>
+        <video class="media-full" src="assets/video/bike-hawk-hill.mp4" poster="assets/img/bike-hawk-hill-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Drone following a cyclist down a coastal road"></video>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="wrap">
+        <h2>Outdoor moments</h2>
+        <p class="sub">Simple, striking views you can't get from the ground.</p>
+        <div class="grid-2">
+          <figure><img src="assets/img/rowboat-overhead.jpg" alt="Overhead view of two people in a rowboat on green water" loading="lazy"><figcaption>Rowboat, overhead</figcaption></figure>
+          <figure><img src="assets/img/bike-hawk-hill-poster.jpg" alt="Cyclist on a winding coastal road above the ocean" loading="lazy"><figcaption>Coastal ride, Marin Headlands</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="block alt">
+      <div class="wrap">
+        <h2>What I shoot</h2>
+        <p class="sub">Every flight is planned around FAA rules and the venue, so the footage is safe and legal.</p>
+        <ul class="uses-list">
+          <li><strong>Rides &amp; races</strong><span>Follow shots, course overviews and start and finish areas.</span></li>
+          <li><strong>Weddings</strong><span>Venue aerials, arrivals and the setting around your day.</span></li>
+          <li><strong>Outdoor adventures</strong><span>Hikes, paddles and personal milestones.</span></li>
+          <li><strong>Venues &amp; property</strong><span>Overviews for event planners and hosts.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="wrap">
+        <h2>Have a project in mind?</h2>
+        <p>Send the location and what you need, and I'll get back to you with options and a quote.</p>
+        <a class="btn btn-primary" href="index.html#contact">Get a quote</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>&copy; <span id="year">2026</span> Airstory Imaging &middot; FAA Part 107 certified</span>
+      <span class="social">
+        <a href="https://www.instagram.com/airstoryimaging/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/airstoryimaging" target="_blank" rel="noopener">Facebook</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const links = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
